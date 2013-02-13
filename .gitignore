@@ -1,37 +1,77 @@
-# Ignore configuration files that may contain sensitive information.
-sites/*/*settings*.php
 
-# Ignore paths that contain generated content.
-cache/
-files/
-sites/*/files
-sites/*/private
+# General
+*~
 
-# Ignore default text files
-.htaccess
-robots.txt
-/CHANGELOG.txt
-/COPYRIGHT.txt
-/INSTALL*.txt
-/LICENSE.txt
-/MAINTAINERS.txt
-/UPGRADE.txt
-/README.txt
-sites/all/README.txt
-sites/all/modules/README.txt
-sites/all/themes/README.txt
+#OS - OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
 
-# Ignore everything but the "sites" folder ( for non core developer )
-web.config
-authorize.php
-cron.php
-index.php
-install.php
-update.php
-xmlrpc.php
-/includes
-/misc
-/modules
-/profiles
-/scripts
-/themes
+# OS - Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor - Eclipse
+.project
+.metadata
+bin/**
+tmp/**
+*.tmp
+*.bak
+
+# Editor - Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+# Editor - Netbeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Editor - PHPStorm
+.idea/
+
+# Editor - SublimeText
+*.sublime-workspace
+
+# Editor - TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+# Editor - Vim
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Archives
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+*.iso
+*.tar
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
