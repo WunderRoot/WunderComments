@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Code for the Letters to the Editor feature.
+ */
+
+include_once 'comments_letters.features.inc';
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function comments_letters_form_comment_form_alter(&$form, &$form_state, $form_id) {
+  // Unset the form_state, just to make sure nothing happens accidentally.
+  unset($form_state);
+
+  // Remove unnecessary form fields.
+  foreach ($form as $key => $name) {
+    if (in_array($key, array('comment_body', 'author', 'subject', '#submit', '#validate', '#pre_render', 'actions'))) {
+      unset($form[$key]);
+    }
+  }
+
+  // Fetch the mailbox for comments_letters_gmail.
+  $mailbox = mailhandler_mailbox_load('comments_letters_gmail');
+  $base_email = $mailbox->settings['name'];
+
+  // Add node aliasing to the email address, so the comment gets routed correctly.
+  $email = explode('@', $base_email);
+  $email[0] .= '+drupal' . $form['nid']['#value'];
+  $email = implode('@', $email);
+
+  $form['#prefix'] = t("To submit a comment, please send it as an email to <a href='mailto:@email'>@email</a>.", array('@email' => $email));
+}
