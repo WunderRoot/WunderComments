@@ -3,6 +3,9 @@ WunderComments
 
 A labs project to experiment with better approaches to submitting and managing comments on large media sites.
 
+Details of the project, analysis of the problem, and discussion of our ideas for solutions can be found on our blog at: http://wunderroot.com/tags/wundercomments
+
+
 
 Modules
 =======
